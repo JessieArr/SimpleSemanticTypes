@@ -63,7 +63,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NetTypeWrapper\SimpleSemanticTypes.csproj">
+    <ProjectReference Include="..\SimpleSemanticTypes\SimpleSemanticTypes.csproj">
       <Project>{DF588C30-0B8F-4C92-8765-031E3718CEF5}</Project>
       <Name>SimpleSemanticTypes</Name>
     </ProjectReference>

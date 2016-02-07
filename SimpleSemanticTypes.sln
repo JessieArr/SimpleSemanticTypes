@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSemanticTypes", "NetTypeWrapper\SimpleSemanticTypes.csproj", "{DF588C30-0B8F-4C92-8765-031E3718CEF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSemanticTypes", "SimpleSemanticTypes\SimpleSemanticTypes.csproj", "{DF588C30-0B8F-4C92-8765-031E3718CEF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSemanticTypes.Tests", "NetTypeWrapper.Tests\SimpleSemanticTypes.Tests.csproj", "{6BD67927-6AE8-4D23-8431-2D1DB4DFB1F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSemanticTypes.Tests", "SimpleSemanticTypes.Tests\SimpleSemanticTypes.Tests.csproj", "{6BD67927-6AE8-4D23-8431-2D1DB4DFB1F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
