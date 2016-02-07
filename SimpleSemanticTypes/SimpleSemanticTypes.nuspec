@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>0.1.0</version>
+    <title>Simple Semantic Types</title>
+    <authors>Shawn Morrison</authors>
+    <owners>Shawn Morrison</owners>
+    <projectUrl>https://github.com/JessieArr/SimpleSemanticTypes</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple implementation of Semantic Types in .NET</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>C# SemanticTypes</tags>
+  </metadata>
+</package>
