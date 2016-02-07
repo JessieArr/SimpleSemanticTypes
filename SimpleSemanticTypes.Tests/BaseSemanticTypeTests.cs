@@ -104,16 +104,16 @@ namespace SimpleSemanticTypes.Tests
         public void EqualityComparison_RightNull_WorksForClass()
         {
             var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            Assert.False(_SUT1 == null);
-            Assert.That(_SUT1 != null);
+            Assert.False(_SUT1 == (BaseSemanticType<TestClass>)null);
+            Assert.That(_SUT1 != (BaseSemanticType<TestClass>)null);
         }
 
         [Test]
         public void EqualityComparison_LeftNull_WorksForClass()
         {
             var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            Assert.False(null == _SUT1);
-            Assert.That(null != _SUT1);
+            Assert.False((BaseSemanticType<TestClass>)null == _SUT1);
+            Assert.That((BaseSemanticType<TestClass>)null != _SUT1);
         }
 
         [Test]

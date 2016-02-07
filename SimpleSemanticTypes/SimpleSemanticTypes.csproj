@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSemanticType.cs" />
+    <Compile Include="ComparableSemanticType.cs" />
     <Compile Include="NetTypeWrapperException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

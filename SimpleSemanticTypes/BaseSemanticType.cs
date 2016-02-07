@@ -22,6 +22,26 @@ namespace SimpleSemanticTypes
             Value = typeToWrap;
         }
 
+        #region Overridable Members
+
+        protected virtual bool ValueIsValid(T value)
+        {
+            if (object.ReferenceEquals(value, null))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        protected virtual string GetValidationFailureMessage(T value)
+        {
+            return DefaultValidationMessage;
+        }
+
+        #endregion
+
+        #region == Operator Overloads
+
         public static bool operator ==(BaseSemanticType<T> typeA, BaseSemanticType<T> typeB)
         {
             if (object.ReferenceEquals(typeA, null))
@@ -39,6 +59,44 @@ namespace SimpleSemanticTypes
             return typeA.Equals(typeB);
         }
 
+        public static bool operator ==(BaseSemanticType<T> typeA, T typeB)
+        {
+            if (object.ReferenceEquals(typeA, null))
+            {
+                return object.ReferenceEquals(typeB, null);
+            }
+            else
+            {
+                if (object.ReferenceEquals(typeB, null))
+                {
+                    return false;
+                }
+            }
+
+            return typeA.Value.Equals(typeB);
+        }
+
+        public static bool operator ==(T typeA, BaseSemanticType<T> typeB)
+        {
+            if (object.ReferenceEquals(typeA, null))
+            {
+                return object.ReferenceEquals(typeB, null);
+            }
+            else
+            {
+                if (object.ReferenceEquals(typeB, null))
+                {
+                    return false;
+                }
+            }
+
+            return typeA.Equals(typeB.Value);
+        }
+
+        #endregion
+
+        #region != Operator Overloads
+
         public static bool operator !=(BaseSemanticType<T> typeA, BaseSemanticType<T> typeB)
         {
             if (object.ReferenceEquals(typeA, null))
@@ -55,6 +113,42 @@ namespace SimpleSemanticTypes
 
             return !typeA.Equals(typeB);
         }
+
+        public static bool operator !=(BaseSemanticType<T> typeA, T typeB)
+        {
+            if (object.ReferenceEquals(typeA, null))
+            {
+                return !object.ReferenceEquals(typeB, null);
+            }
+            else
+            {
+                if (object.ReferenceEquals(typeB, null))
+                {
+                    return true;
+                }
+            }
+
+            return !typeA.Value.Equals(typeB);
+        }
+
+        public static bool operator !=(T typeA, BaseSemanticType<T> typeB)
+        {
+            if (object.ReferenceEquals(typeA, null))
+            {
+                return !object.ReferenceEquals(typeB, null);
+            }
+            else
+            {
+                if (object.ReferenceEquals(typeB, null))
+                {
+                    return true;
+                }
+            }
+
+            return !typeA.Equals(typeB.Value);
+        }
+
+        #endregion
 
         public bool Equals(BaseSemanticType<T> other)
         {
@@ -77,20 +171,6 @@ namespace SimpleSemanticTypes
         public override int GetHashCode()
         {
             return EqualityComparer<T>.Default.GetHashCode(Value);
-        }
-
-        protected virtual bool ValueIsValid(T value)
-        {
-            if (object.ReferenceEquals(value, null))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        protected virtual string GetValidationFailureMessage(T value)
-        {
-            return DefaultValidationMessage;
         }
 
         public override string ToString()
