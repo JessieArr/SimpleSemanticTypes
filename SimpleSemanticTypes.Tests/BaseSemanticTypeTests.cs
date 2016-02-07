@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using SimpleSemanticTypes.Tests.TestTypes;
 
 namespace SimpleSemanticTypes.Tests
 {
@@ -139,6 +140,42 @@ namespace SimpleSemanticTypes.Tests
 
             Assert.That(_SUT1.Equals(_SUT2));
             Assert.False(_SUT1.Equals(_SUT3));
+        }
+
+        [Test]
+        public void Equals_False_ForNull()
+        {
+            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
+
+            // IEquatable<BaseSemanticType<T>>.Equals
+            Assert.False(_SUT1.Equals((BaseSemanticType<TestClass>)null));
+        }
+
+        [Test]
+        public void ObjectEquals_CorrectlyHandlesNulls()
+        {
+            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
+            var _SUT1Reference = _SUT1;
+            var _SUT2 = new BaseSemanticType<TestClass>(_TestClass);
+            var _SUT3 = new BaseSemanticType<TestClass>(_OtherTestClass);
+
+            Assert.False(_SUT1.Equals((object)null));
+            Assert.True(_SUT1.Equals((object)_SUT1Reference));
+            Assert.False(_SUT1.Equals((object)new TestClass()));
+            Assert.True(_SUT1.Equals((object)_SUT2));
+            Assert.False(_SUT1.Equals((object)_SUT3));
+        }
+
+        [Test]
+        public void ToString_Works_ForAllWrappedTypes()
+        {
+            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
+            var _SUT2 = new BaseSemanticType<string>(_TestString);
+            var _SUT3 = new BaseSemanticType<int>(_TestInt);
+
+            Assert.That(_SUT1.ToString() == _TestClass.ToString());
+            Assert.That(_SUT2.ToString() == _TestString);
+            Assert.That(_SUT3.ToString() == _TestInt.ToString());
         }
     }
 }

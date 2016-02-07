@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleSemanticTypes
 {
-    public class BaseSemanticType<T>
+    public class BaseSemanticType<T> : IEquatable<BaseSemanticType<T>>
     {
         public readonly T Value;
         public static string DefaultValidationMessage = "Wrapped " + typeof(T) + " value is not valid!";
@@ -56,8 +56,13 @@ namespace SimpleSemanticTypes
             return !typeA.Equals(typeB);
         }
 
-        protected bool Equals(BaseSemanticType<T> other)
+        public bool Equals(BaseSemanticType<T> other)
         {
+            if (other == null)
+            {
+                return false;
+            }
+
             return EqualityComparer<T>.Default.Equals(Value, other.Value);
         }
 
@@ -86,6 +91,11 @@ namespace SimpleSemanticTypes
         protected virtual string GetValidationFailureMessage(T value)
         {
             return DefaultValidationMessage;
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
         }
     }
 }
