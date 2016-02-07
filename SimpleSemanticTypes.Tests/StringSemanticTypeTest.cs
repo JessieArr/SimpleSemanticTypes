@@ -45,5 +45,12 @@ namespace SimpleSemanticTypes.Tests
             Assert.False(_TestString == _NullStringSemanticType);
             Assert.That(_TestString != _NullStringSemanticType);
         }
+
+        [Test]
+        public void Concatenation_Succeeds()
+        {
+            var _SUT = new StringSemanticType(_TestString);
+            Assert.That(_SUT + _TestString == _TestString + _TestString);
+        }
     }
 }

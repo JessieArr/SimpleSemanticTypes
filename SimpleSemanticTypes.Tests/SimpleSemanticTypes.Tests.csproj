@@ -55,10 +55,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ArithmeticSemanticTypeTests.cs" />
     <Compile Include="BaseSemanticTypeTests.cs" />
     <Compile Include="ComparableSemanticTypeTests.cs" />
+    <Compile Include="IntSemanticTypeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringSemanticTypeTest.cs" />
+    <Compile Include="TestTypes\IntSemanticType.cs" />
     <Compile Include="TestTypes\StringSemanticType.cs" />
     <Compile Include="TestTypes\TestClass.cs" />
   </ItemGroup>

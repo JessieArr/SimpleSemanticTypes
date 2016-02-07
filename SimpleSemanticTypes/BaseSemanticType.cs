@@ -17,7 +17,7 @@ namespace SimpleSemanticTypes
             if (!ValueIsValid(typeToWrap))
             {
                 var errorMessage = GetValidationFailureMessage(typeToWrap);
-                throw new NetTypeWrapperException(errorMessage);
+                throw new SimpleSemanticTypeException(errorMessage);
             }
             Value = typeToWrap;
         }
