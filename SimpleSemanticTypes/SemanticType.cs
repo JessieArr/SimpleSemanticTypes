@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SimpleSemanticTypes
 {
-    public class BaseSemanticType<T> : IEquatable<BaseSemanticType<T>>
+    public class SemanticType<T> : IEquatable<SemanticType<T>>
     {
         public readonly T Value;
         public static string DefaultValidationMessage = "Wrapped " + typeof(T) + " value is not valid!";
 
-        public BaseSemanticType(T typeToWrap)
+        public SemanticType(T typeToWrap)
         {
             if (!ValueIsValid(typeToWrap))
             {
@@ -42,7 +42,7 @@ namespace SimpleSemanticTypes
 
         #region == Operator Overloads
 
-        public static bool operator ==(BaseSemanticType<T> typeA, BaseSemanticType<T> typeB)
+        public static bool operator ==(SemanticType<T> typeA, SemanticType<T> typeB)
         {
             if (object.ReferenceEquals(typeA, null))
             {
@@ -59,7 +59,7 @@ namespace SimpleSemanticTypes
             return typeA.Equals(typeB);
         }
 
-        public static bool operator ==(BaseSemanticType<T> typeA, T typeB)
+        public static bool operator ==(SemanticType<T> typeA, T typeB)
         {
             if (object.ReferenceEquals(typeA, null))
             {
@@ -76,7 +76,7 @@ namespace SimpleSemanticTypes
             return typeA.Value.Equals(typeB);
         }
 
-        public static bool operator ==(T typeA, BaseSemanticType<T> typeB)
+        public static bool operator ==(T typeA, SemanticType<T> typeB)
         {
             if (object.ReferenceEquals(typeA, null))
             {
@@ -97,7 +97,7 @@ namespace SimpleSemanticTypes
 
         #region != Operator Overloads
 
-        public static bool operator !=(BaseSemanticType<T> typeA, BaseSemanticType<T> typeB)
+        public static bool operator !=(SemanticType<T> typeA, SemanticType<T> typeB)
         {
             if (object.ReferenceEquals(typeA, null))
             {
@@ -114,7 +114,7 @@ namespace SimpleSemanticTypes
             return !typeA.Equals(typeB);
         }
 
-        public static bool operator !=(BaseSemanticType<T> typeA, T typeB)
+        public static bool operator !=(SemanticType<T> typeA, T typeB)
         {
             if (object.ReferenceEquals(typeA, null))
             {
@@ -131,7 +131,7 @@ namespace SimpleSemanticTypes
             return !typeA.Value.Equals(typeB);
         }
 
-        public static bool operator !=(T typeA, BaseSemanticType<T> typeB)
+        public static bool operator !=(T typeA, SemanticType<T> typeB)
         {
             if (object.ReferenceEquals(typeA, null))
             {
@@ -150,7 +150,7 @@ namespace SimpleSemanticTypes
 
         #endregion
 
-        public bool Equals(BaseSemanticType<T> other)
+        public bool Equals(SemanticType<T> other)
         {
             if (other == null)
             {
@@ -165,7 +165,7 @@ namespace SimpleSemanticTypes
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((BaseSemanticType<T>)obj);
+            return Equals((SemanticType<T>)obj);
         }
 
         public override int GetHashCode()

@@ -5,7 +5,7 @@ using SimpleSemanticTypes.Tests.TestTypes;
 namespace SimpleSemanticTypes.Tests
 {
     [TestFixture]
-    public class BaseSemanticTypeTests
+    public class SemanticTypeTests
     {
         private string _TestString = "TestString";
         private string _OtherTestString = "OtherTestString";
@@ -17,19 +17,19 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void Constructor_SucceedsForString()
         {
-            var _SUT = new BaseSemanticType<string>(_TestString);
+            var _SUT = new SemanticType<string>(_TestString);
         }
 
         [Test]
         public void Constructor_SucceedsForInt()
         {
-            var _SUT = new BaseSemanticType<int>(_TestInt);
+            var _SUT = new SemanticType<int>(_TestInt);
         }
 
         [Test]
         public void Constructor_SucceedsForClass()
         {
-            var _SUT = new BaseSemanticType<TestClass>(new TestClass());
+            var _SUT = new SemanticType<TestClass>(new TestClass());
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace SimpleSemanticTypes.Tests
             Exception caughtException = null;
             try
             {
-                var _SUT = new BaseSemanticType<string>(null);
+                var _SUT = new SemanticType<string>(null);
             }
             catch (Exception ex)
             {
@@ -46,14 +46,14 @@ namespace SimpleSemanticTypes.Tests
             }
 
             Assert.NotNull(caughtException);
-            Assert.That(caughtException.Message == BaseSemanticType<string>.DefaultValidationMessage);
+            Assert.That(caughtException.Message == SemanticType<string>.DefaultValidationMessage);
         }
 
         [Test]
         public void EqualityComparison_SameValue_WorksForString()
         {
-            var _SUT1 = new BaseSemanticType<string>(_TestString);
-            var _SUT2 = new BaseSemanticType<string>(_TestString);
+            var _SUT1 = new SemanticType<string>(_TestString);
+            var _SUT2 = new SemanticType<string>(_TestString);
             Assert.That(_SUT1 == _SUT2);
             Assert.False(_SUT1 != _SUT2);
         }
@@ -61,16 +61,16 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void EqualityComparison_DifferentValue_WorksForString()
         {
-            var _SUT1 = new BaseSemanticType<string>(_TestString);
-            var _SUT2 = new BaseSemanticType<string>(_OtherTestString);
+            var _SUT1 = new SemanticType<string>(_TestString);
+            var _SUT2 = new SemanticType<string>(_OtherTestString);
             Assert.False(_SUT1 == _SUT2);
         }
 
         [Test]
         public void EqualityComparison_SameValue_WorksForInt()
         {
-            var _SUT1 = new BaseSemanticType<int>(_TestInt);
-            var _SUT2 = new BaseSemanticType<int>(_TestInt);
+            var _SUT1 = new SemanticType<int>(_TestInt);
+            var _SUT2 = new SemanticType<int>(_TestInt);
             Assert.That(_SUT1 == _SUT2);
             Assert.False(_SUT1 != _SUT2);
         }
@@ -78,16 +78,16 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void EqualityComparison_DifferentValue_WorksForInt()
         {
-            var _SUT1 = new BaseSemanticType<int>(_TestInt);
-            var _SUT2 = new BaseSemanticType<int>(_OtherTestInt);
+            var _SUT1 = new SemanticType<int>(_TestInt);
+            var _SUT2 = new SemanticType<int>(_OtherTestInt);
             Assert.False(_SUT1 == _SUT2);
         }
 
         [Test]
         public void EqualityComparison_SameValue_WorksForClass()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT2 = new BaseSemanticType<TestClass>(_TestClass);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            var _SUT2 = new SemanticType<TestClass>(_TestClass);
             Assert.That(_SUT1 == _SUT2);
             Assert.False(_SUT1 != _SUT2);
         }
@@ -95,33 +95,33 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void EqualityComparison_DifferentValue_WorksForClass()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT2 = new BaseSemanticType<TestClass>(_OtherTestClass);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            var _SUT2 = new SemanticType<TestClass>(_OtherTestClass);
             Assert.False(_SUT1 == _SUT2);
         }
 
         [Test]
         public void EqualityComparison_RightNull_WorksForClass()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            Assert.False(_SUT1 == (BaseSemanticType<TestClass>)null);
-            Assert.That(_SUT1 != (BaseSemanticType<TestClass>)null);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            Assert.False(_SUT1 == (SemanticType<TestClass>)null);
+            Assert.That(_SUT1 != (SemanticType<TestClass>)null);
         }
 
         [Test]
         public void EqualityComparison_LeftNull_WorksForClass()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            Assert.False((BaseSemanticType<TestClass>)null == _SUT1);
-            Assert.That((BaseSemanticType<TestClass>)null != _SUT1);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            Assert.False((SemanticType<TestClass>)null == _SUT1);
+            Assert.That((SemanticType<TestClass>)null != _SUT1);
         }
 
         [Test]
         public void GetHashCode_WorksForClass()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT2 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT3 = new BaseSemanticType<TestClass>(_OtherTestClass);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            var _SUT2 = new SemanticType<TestClass>(_TestClass);
+            var _SUT3 = new SemanticType<TestClass>(_OtherTestClass);
 
             var hashcode1 = _SUT1.GetHashCode();
             var hashcode2 = _SUT2.GetHashCode();
@@ -134,9 +134,9 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void Equals_WorksForClass()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT2 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT3 = new BaseSemanticType<TestClass>(_OtherTestClass);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            var _SUT2 = new SemanticType<TestClass>(_TestClass);
+            var _SUT3 = new SemanticType<TestClass>(_OtherTestClass);
 
             Assert.That(_SUT1.Equals(_SUT2));
             Assert.False(_SUT1.Equals(_SUT3));
@@ -145,19 +145,19 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void Equals_False_ForNull()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
 
-            // IEquatable<BaseSemanticType<T>>.Equals
-            Assert.False(_SUT1.Equals((BaseSemanticType<TestClass>)null));
+            // IEquatable<SemanticType<T>>.Equals
+            Assert.False(_SUT1.Equals((SemanticType<TestClass>)null));
         }
 
         [Test]
         public void ObjectEquals_CorrectlyHandlesNulls()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
             var _SUT1Reference = _SUT1;
-            var _SUT2 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT3 = new BaseSemanticType<TestClass>(_OtherTestClass);
+            var _SUT2 = new SemanticType<TestClass>(_TestClass);
+            var _SUT3 = new SemanticType<TestClass>(_OtherTestClass);
 
             Assert.False(_SUT1.Equals((object)null));
             Assert.True(_SUT1.Equals((object)_SUT1Reference));
@@ -169,9 +169,9 @@ namespace SimpleSemanticTypes.Tests
         [Test]
         public void ToString_Works_ForAllWrappedTypes()
         {
-            var _SUT1 = new BaseSemanticType<TestClass>(_TestClass);
-            var _SUT2 = new BaseSemanticType<string>(_TestString);
-            var _SUT3 = new BaseSemanticType<int>(_TestInt);
+            var _SUT1 = new SemanticType<TestClass>(_TestClass);
+            var _SUT2 = new SemanticType<string>(_TestString);
+            var _SUT3 = new SemanticType<int>(_TestInt);
 
             Assert.That(_SUT1.ToString() == _TestClass.ToString());
             Assert.That(_SUT2.ToString() == _TestString);

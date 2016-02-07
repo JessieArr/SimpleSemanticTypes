@@ -10,7 +10,7 @@ using SimpleSemanticTypes.Tests.TestTypes;
 namespace SimpleSemanticTypes.Tests
 {
     [TestFixture]
-    public class StringSemanticTypeTest
+    public class StringSemanticTypeTests
     {
         public string _TestString = "TestString";
 
