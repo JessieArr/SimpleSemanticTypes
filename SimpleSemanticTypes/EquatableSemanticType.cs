@@ -8,7 +8,7 @@ namespace SimpleSemanticTypes
 {
     // We inherit the implementations of Equals and GetHashCode from our base class.
 #pragma warning disable 0660, 0661
-    public class EquatableSemanticType<T> : SemanticType<T>
+    public class EquatableSemanticType<T> : SemanticType<T>, IEquatable<T>
     {
 #pragma warning restore 0660, 0661
 
@@ -82,6 +82,11 @@ namespace SimpleSemanticTypes
             }
 
             return !typeA.Equals(typeB.Value);
+        }
+
+        public bool Equals(T other)
+        {
+            return Value.Equals(other);
         }
     }
 }
