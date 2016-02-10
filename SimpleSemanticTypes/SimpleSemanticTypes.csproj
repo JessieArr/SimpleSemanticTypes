@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArithmeticSemanticType.cs" />
+    <Compile Include="EquatableSemanticType.cs" />
     <Compile Include="SemanticType.cs" />
     <Compile Include="ComparableSemanticType.cs" />
     <Compile Include="SimpleSemanticTypeException.cs" />

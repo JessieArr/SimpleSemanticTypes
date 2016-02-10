@@ -27,6 +27,8 @@ namespace SimpleSemanticTypes.Tests
             StringSemanticType _NullStringSemanticType = null;
             string _NullString = null;
 
+            var x = _NullStringSemanticType == null;
+
             Assert.That(_SUT == _TestString);
             Assert.False(_SUT != _TestString);
             Assert.False(_SUT == _NullStringSemanticType);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleSemanticTypes
 {
-    public class ComparableSemanticType<T> : SemanticType<T>, IComparable<ComparableSemanticType<T>>
+    public class ComparableSemanticType<T> : EquatableSemanticType<T>, IComparable<ComparableSemanticType<T>>
         where T : IComparable<T>
     {
         public ComparableSemanticType(T typeToWrap) : base(typeToWrap)

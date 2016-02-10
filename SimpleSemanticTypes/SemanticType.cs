@@ -59,40 +59,6 @@ namespace SimpleSemanticTypes
             return typeA.Equals(typeB);
         }
 
-        public static bool operator ==(SemanticType<T> typeA, T typeB)
-        {
-            if (object.ReferenceEquals(typeA, null))
-            {
-                return object.ReferenceEquals(typeB, null);
-            }
-            else
-            {
-                if (object.ReferenceEquals(typeB, null))
-                {
-                    return false;
-                }
-            }
-
-            return typeA.Value.Equals(typeB);
-        }
-
-        public static bool operator ==(T typeA, SemanticType<T> typeB)
-        {
-            if (object.ReferenceEquals(typeA, null))
-            {
-                return object.ReferenceEquals(typeB, null);
-            }
-            else
-            {
-                if (object.ReferenceEquals(typeB, null))
-                {
-                    return false;
-                }
-            }
-
-            return typeA.Equals(typeB.Value);
-        }
-
         #endregion
 
         #region != Operator Overloads
@@ -114,39 +80,7 @@ namespace SimpleSemanticTypes
             return !typeA.Equals(typeB);
         }
 
-        public static bool operator !=(SemanticType<T> typeA, T typeB)
-        {
-            if (object.ReferenceEquals(typeA, null))
-            {
-                return !object.ReferenceEquals(typeB, null);
-            }
-            else
-            {
-                if (object.ReferenceEquals(typeB, null))
-                {
-                    return true;
-                }
-            }
-
-            return !typeA.Value.Equals(typeB);
-        }
-
-        public static bool operator !=(T typeA, SemanticType<T> typeB)
-        {
-            if (object.ReferenceEquals(typeA, null))
-            {
-                return !object.ReferenceEquals(typeB, null);
-            }
-            else
-            {
-                if (object.ReferenceEquals(typeB, null))
-                {
-                    return true;
-                }
-            }
-
-            return !typeA.Equals(typeB.Value);
-        }
+        
 
         #endregion
 
@@ -177,5 +111,10 @@ namespace SimpleSemanticTypes
         {
             return Value.ToString();
         }
+    }
+
+    public static class SemanticType
+    {
+        public static readonly dynamic Null = null;
     }
 }

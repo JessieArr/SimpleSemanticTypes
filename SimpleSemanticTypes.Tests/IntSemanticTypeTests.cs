@@ -47,5 +47,22 @@ namespace SimpleSemanticTypes.Tests
                 var result = _nullIntSemanticType + _SUT1;
             });
         }
+
+        [Test]
+        public void EqualityOperators_WorkCorrectly()
+        {
+            var _SUT = new IntSemanticType(_TestInt);
+            IntSemanticType _NullStringSemanticType = null;
+
+            var x = _NullStringSemanticType == null;
+
+            Assert.That(_SUT == _TestInt);
+            Assert.False(_SUT != _TestInt);
+            Assert.False(_SUT == _NullStringSemanticType);
+            Assert.True(_SUT != _NullStringSemanticType);
+
+            Assert.False(_NullStringSemanticType == _SUT);
+            Assert.That(_NullStringSemanticType != _SUT);
+        }
     }
 }

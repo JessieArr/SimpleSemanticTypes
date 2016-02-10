@@ -1,6 +1,6 @@
 ﻿namespace SimpleSemanticTypes.Tests.TestTypes
 {
-    public class StringSemanticType : SemanticType<string>
+    public class StringSemanticType : EquatableSemanticType<string>
     {
         public StringSemanticType(string typeToWrap) : base(typeToWrap)
         {
