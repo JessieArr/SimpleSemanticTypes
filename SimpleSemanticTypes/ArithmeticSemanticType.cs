@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace SimpleSemanticTypes
 {
-    public class ArithmeticSemanticType<T> : EquatableSemanticType<T>
+    public class ArithmeticSemanticType<T> : ComparableSemanticType<T>
+        where T : IComparable<T>
     {
         public ArithmeticSemanticType(T typeToWrap) : base(typeToWrap)
         {
