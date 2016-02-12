@@ -115,6 +115,9 @@ namespace SimpleSemanticTypes
 
     public static class SemanticType
     {
-        public static readonly dynamic Null = null;
+        public static bool IsNull(object objectToCheck)
+        {
+            return ReferenceEquals(objectToCheck, null);
+        }
     }
 }

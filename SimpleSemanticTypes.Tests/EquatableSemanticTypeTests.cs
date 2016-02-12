@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework.Internal;
 using NUnit.Framework;
+using SimpleSemanticTypes.Tests.TestTypes;
 
 namespace SimpleSemanticTypes.Tests
 {
@@ -30,6 +31,49 @@ namespace SimpleSemanticTypes.Tests
             var _SUT = new EquatableSemanticType<string>(_TestString);
             Assert.That(_SUT.Equals(_TestString));
             Assert.False(_SUT.Equals(_OtherTestString));
+        }
+
+        [Test]
+        public void Equals_Null_Succeeds()
+        {
+            EquatableSemanticType<TestClass> _SUT1 = null;
+            EquatableSemanticType<string> _SUT2 = null;
+            EquatableSemanticType<int> _SUT3 = null;
+
+            Assert.That(_SUT1 == null);
+            Assert.That(null == _SUT1);
+            Assert.That(_SUT2 == null);
+            Assert.That(null == _SUT2);
+            Assert.That(_SUT3 == null);
+            Assert.That(null == _SUT3);
+        }
+
+        [Test]
+        public void NotEquals_Null_Succeeds()
+        {
+            EquatableSemanticType<TestClass> _SUT1 = null;
+            EquatableSemanticType<string> _SUT2 = null;
+            EquatableSemanticType<int> _SUT3 = null;
+
+            Assert.False(_SUT1 != null);
+            Assert.False(null != _SUT1);
+            Assert.False(_SUT2 != null);
+            Assert.False(null != _SUT2);
+            Assert.False(_SUT3 != null);
+            Assert.False(null != _SUT3);
+
+        }
+
+        [Test]
+        public void StaticClass_IsNull_IsTrueForNullReferences()
+        {
+            EquatableSemanticType<TestClass> _SUT1 = null;
+            EquatableSemanticType<string> _SUT2 = null;
+            EquatableSemanticType<int> _SUT3 = null;
+
+            Assert.That(SemanticType.IsNull(_SUT1));
+            Assert.That(SemanticType.IsNull(_SUT2));
+            Assert.That(SemanticType.IsNull(_SUT3));
         }
     }
 }
